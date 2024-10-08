@@ -43,35 +43,15 @@ aws eks update-kubeconfig --region your-region --name cluster-name
 
 ## Qovery Installation
 
-## Install Qovery
+### Install Qovery
 
 Follow the instruction on [the official documentation](https://hub.qovery.com/docs/getting-started/install-qovery/aws/self-managed-cluster/) to install Qovery on your cluster.
 
-### Add the Qovery Helm repository
-
-helm repo add qovery https://helm.qovery.com
-helm repo update
-
-### Verify the helm values
-
-Qovery provides you with a default configuration that can be customized based on your needs. More information [here](https://hub.qovery.com/docs/getting-started/install-qovery/kubernetes/byok-config)
-
-### Install Qovery on your cluster first, without some services to avoid circular dependency errors
-
-```bash
-helm upgrade --install --create-namespace -n qovery -f "/Users/baalooos/git/qovery-eks/values-my-eks-cluster.yaml" --atomic \
-         --set services.certificates.cert-manager-configs.enabled=false \
-         --set services.certificates.qovery-cert-manager-webhook.enabled=false \
-         --set services.qovery.qovery-cluster-agent.enabled=false \
-         --set services.qovery.qovery-engine.enabled=false \
-         qovery qovery/qovery
+```shell
+qovery cluster install
 ```
 
-### Then, re-apply the full Qovery installation with all services
-
-```bash
-helm upgrade --install --create-namespace -n qovery -f "/Users/baalooos/git/qovery-eks/values-my-eks-cluster.yaml" --wait --atomic qovery qovery/qovery
-```
+Select EKS, and respond to the prompts to install Qovery on your AWS EKS Kubernetes cluster.
 
 ### Validate your installation
 
