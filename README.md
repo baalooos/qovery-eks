@@ -41,6 +41,12 @@ Once your EKS cluster is created, you need to configure `kubectl` to connect to 
 aws eks update-kubeconfig --region your-region --name cluster-name
 ```
 
+You can refer to the official AWS documententation if you need help on how to connect to your EKS cluster:
+
+- [Connect kubectl to an EKS cluster by creating a kubeconfig file](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html)
+- [Grant IAM users access to Kubernetes with EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html)
+- [Update kubeconfig](https://docs.aws.amazon.com/cli/latest/reference/eks/update-kubeconfig.html)
+
 ## Qovery Installation
 
 ### Install Qovery
